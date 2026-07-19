@@ -1,0 +1,157 @@
+{
+  "model_name": "voting_ensemble",
+  "feature_order": [
+    "Age",
+    "RestingBP",
+    "Cholesterol",
+    "FastingBS",
+    "MaxHR",
+    "Oldpeak",
+    "Sex",
+    "ChestPainType",
+    "RestingECG",
+    "ExerciseAngina",
+    "ST_Slope"
+  ],
+  "numeric_features": [
+    "Age",
+    "RestingBP",
+    "Cholesterol",
+    "FastingBS",
+    "MaxHR",
+    "Oldpeak"
+  ],
+  "categorical_features": [
+    "Sex",
+    "ChestPainType",
+    "RestingECG",
+    "ExerciseAngina",
+    "ST_Slope"
+  ],
+  "categorical_options": {
+    "Sex": [
+      "M",
+      "F"
+    ],
+    "ChestPainType": [
+      "TA",
+      "ATA",
+      "NAP",
+      "ASY"
+    ],
+    "RestingECG": [
+      "Normal",
+      "ST",
+      "LVH"
+    ],
+    "ExerciseAngina": [
+      "Y",
+      "N"
+    ],
+    "ST_Slope": [
+      "Up",
+      "Flat",
+      "Down"
+    ]
+  },
+  "metrics_on_holdout": {
+    "accuracy": 0.875,
+    "precision": 0.8624,
+    "recall": 0.9216,
+    "f1": 0.891,
+    "roc_auc": 0.9377,
+    "cv_roc_auc_mean": null,
+    "best_params": {
+      "ensemble_of": [
+        "svm",
+        "logistic_regression",
+        "random_forest"
+      ]
+    }
+  },
+  "all_candidate_metrics": {
+    "logistic_regression": {
+      "accuracy": 0.8913,
+      "precision": 0.8942,
+      "recall": 0.9118,
+      "f1": 0.9029,
+      "roc_auc": 0.9346,
+      "cv_roc_auc_mean": 0.9213,
+      "best_params": {
+        "C": 0.1
+      }
+    },
+    "random_forest": {
+      "accuracy": 0.8804,
+      "precision": 0.8704,
+      "recall": 0.9216,
+      "f1": 0.8952,
+      "roc_auc": 0.9295,
+      "cv_roc_auc_mean": 0.9313,
+      "best_params": {
+        "max_depth": 6,
+        "min_samples_leaf": 2,
+        "n_estimators": 400
+      }
+    },
+    "gradient_boosting": {
+      "accuracy": 0.8859,
+      "precision": 0.8857,
+      "recall": 0.9118,
+      "f1": 0.8986,
+      "roc_auc": 0.9287,
+      "cv_roc_auc_mean": 0.927,
+      "best_params": {
+        "learning_rate": 0.05,
+        "max_depth": 2,
+        "n_estimators": 100
+      }
+    },
+    "svm": {
+      "accuracy": 0.8804,
+      "precision": 0.8774,
+      "recall": 0.9118,
+      "f1": 0.8942,
+      "roc_auc": 0.9376,
+      "cv_roc_auc_mean": 0.9211,
+      "best_params": {
+        "C": 10,
+        "gamma": 0.01
+      }
+    },
+    "voting_ensemble": {
+      "accuracy": 0.875,
+      "precision": 0.8624,
+      "recall": 0.9216,
+      "f1": 0.891,
+      "roc_auc": 0.9377,
+      "cv_roc_auc_mean": null,
+      "best_params": {
+        "ensemble_of": [
+          "svm",
+          "logistic_regression",
+          "random_forest"
+        ]
+      }
+    }
+  },
+  "n_rows_trained_on": 918,
+  "dataset": "Heart Failure Prediction (fedesoriano/Kaggle) \u2014 918 unique patients merged from Cleveland, Hungarian, Switzerland, Long Beach VA, and Statlog cohorts",
+  "target_meaning": {
+    "0": "no heart disease",
+    "1": "heart disease present"
+  },
+  "feature_descriptions": {
+    "Age": "Age in years",
+    "Sex": "M = male, F = female",
+    "ChestPainType": "TA=typical angina, ATA=atypical angina, NAP=non-anginal pain, ASY=asymptomatic",
+    "RestingBP": "Resting blood pressure (mm Hg)",
+    "Cholesterol": "Serum cholesterol (mg/dl)",
+    "FastingBS": "Fasting blood sugar > 120 mg/dl (1 = true, 0 = false)",
+    "RestingECG": "Normal, ST=ST-T wave abnormality, LVH=left ventricular hypertrophy",
+    "MaxHR": "Maximum heart rate achieved (60-202)",
+    "ExerciseAngina": "Exercise-induced angina (Y = yes, N = no)",
+    "Oldpeak": "ST depression induced by exercise relative to rest",
+    "ST_Slope": "Slope of the peak exercise ST segment: Up, Flat, or Down"
+  }
+}

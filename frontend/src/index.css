@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap');
+
+:root {
+  --ink: #0b2233;
+  --ink-soft: #3d5064;
+  --paper: #f4f7f7;
+  --paper-raised: #ffffff;
+  --line: #d7e0e2;
+  --pulse: #d1364a;
+  --pulse-soft: #f6dfe2;
+  --teal: #1f6f66;
+  --teal-soft: #e1efec;
+  --amber: #b9791f;
+  --amber-soft: #f6ecd9;
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Source Serif 4', Georgia, serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, label, button, .mono {
+  font-family: var(--font-display);
+}
+
+.data {
+  font-family: var(--font-mono);
+}
+
+a {
+  color: var(--teal);
+}
+
+::selection {
+  background: var(--pulse-soft);
+}
+
+:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

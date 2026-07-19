@@ -1,0 +1,351 @@
+.app-shell {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+/* ---------- Header / signature ECG element ---------- */
+
+.app-header {
+  position: relative;
+  padding: 2.5rem 0 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.ecg-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 44px;
+  opacity: 0.55;
+}
+
+.ecg-path {
+  animation: ecg-scroll 6s linear infinite;
+}
+
+@keyframes ecg-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-33.333%); }
+}
+
+.header-text {
+  position: relative;
+  margin-top: 2.5rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pulse);
+  margin-bottom: 0.6rem;
+}
+
+.app-header h1 {
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  margin: 0 0 0.7rem;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.app-header p {
+  max-width: 46rem;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ---------- Layout ---------- */
+
+.app-main {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.result-column {
+  position: sticky;
+  top: 1.5rem;
+}
+
+@media (max-width: 860px) {
+  .app-main {
+    grid-template-columns: 1fr;
+  }
+  .result-column {
+    position: static;
+  }
+}
+
+/* ---------- Form ---------- */
+
+.prediction-form {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1.75rem 2rem 2rem;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 1.75rem;
+}
+
+fieldset:last-of-type {
+  margin-bottom: 0.5rem;
+}
+
+legend {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink);
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0 0 0.9rem;
+  width: 100%;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 1.1rem;
+}
+
+.legend-num {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--pulse);
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.1rem 1.4rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.field-label {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+.field-hint {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: #8398a3;
+}
+
+input, select {
+  font-size: 0.95rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+input:focus, select:focus {
+  border-color: var(--teal);
+}
+
+.toggle-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--paper);
+  color: var(--ink-soft);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.toggle-btn.active {
+  background: var(--teal-soft);
+  border-color: var(--teal);
+  color: var(--teal);
+  font-weight: 600;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+}
+
+.btn-primary, .btn-ghost {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.65rem 1.3rem;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--pulse);
+}
+
+.btn-ghost {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--ink-soft);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  border-color: var(--ink-soft);
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ---------- Result card ---------- */
+
+.result-card {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1.75rem;
+  min-height: 280px;
+}
+
+.result-empty, .result-error {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  color: var(--ink-soft);
+}
+
+.result-error p {
+  color: var(--pulse);
+}
+
+.result-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.9rem;
+}
+
+.chip {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--chip-color) 14%, white);
+  color: var(--chip-color);
+  border: 1px solid var(--chip-color);
+}
+
+.result-headline {
+  font-size: 1.4rem;
+  margin: 0 0 1.4rem;
+  color: var(--ink);
+}
+
+.gauge {
+  margin-bottom: 1.4rem;
+}
+
+.gauge-track {
+  position: relative;
+  height: 10px;
+  background: var(--line);
+  border-radius: 999px;
+  overflow: visible;
+}
+
+.gauge-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+.gauge-marker {
+  position: absolute;
+  top: -3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--paper-raised);
+  border: 3px solid var(--ink);
+  transform: translateX(-50%);
+  transition: left 0.4s ease;
+}
+
+.gauge-scale {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.6rem;
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+}
+
+.gauge-value {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.result-note {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+  margin: 0;
+}
+
+/* ---------- Footer ---------- */
+
+.app-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #8398a3;
+}
+
+@media (max-width: 520px) {
+  .field-grid {
+    grid-template-columns: 1fr;
+  }
+  .prediction-form {
+    padding: 1.4rem 1.3rem 1.6rem;
+  }
+}
