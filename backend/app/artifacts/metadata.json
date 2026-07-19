@@ -136,7 +136,7 @@
     }
   },
   "n_rows_trained_on": 918,
-  "dataset": "Heart Failure Prediction (fedesoriano/Kaggle) \u2014 918 unique patients merged from Cleveland, Hungarian, Switzerland, Long Beach VA, and Statlog cohorts",
+  "dataset": "Heart Failure Prediction (fedesoriano/Kaggle) - 918 unique patients",
   "target_meaning": {
     "0": "no heart disease",
     "1": "heart disease present"
